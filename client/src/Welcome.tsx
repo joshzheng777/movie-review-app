@@ -3,13 +3,7 @@ type WelcomeProps = {
     isLoggedIn: boolean
 }
 
-// TODO: It's not recognizing the default value for name
-Welcome.defaultProps = {
-    name: "Bob",
-    isLoggedIn: false,
-}
-
-function Welcome(props: WelcomeProps) {
+const Welcome = (props: WelcomeProps) => {
 
     if (props.isLoggedIn === true) {
         return <p>Hello {props.name}</p>
@@ -17,6 +11,12 @@ function Welcome(props: WelcomeProps) {
         return <p>Please log in</p>
     }
 
+}
+
+// TODO: It's not recognizing the default value for name
+Welcome.defaultProps = {
+    name: "Bob",
+    isLoggedIn: false,
 }
 
 export default Welcome
