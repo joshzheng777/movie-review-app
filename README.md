@@ -4,12 +4,6 @@ A full-stack web application for browsing and submitting movie reviews. Built wi
 
 ---
 
-## 🌐 Live Demo
-
-Coming soon...
-
----
-
 ## 🧑‍💻 Tech Stack
 
 ### Frontend (`/client`)
