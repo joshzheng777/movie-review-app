@@ -1,19 +1,18 @@
 import './App.css'
 import Navbar from './Navbar'
-import Footer from './Footer'
 import Welcome from './Welcome'
+import Footer from './Footer'
 
 const App = () => {
-
-  return (
-    <div className="flex flex-col min-h-screen">
-      <Navbar />
-      <main className="flex-grow">
-        <Welcome isLoggedIn={true} />
-      </main>
-      <Footer />
-    </div>
-  )
+    return (
+        <div className="flex flex-col min-h-screen">
+        <Navbar />
+        <main className="flex-grow">
+            <Welcome isLoggedIn={true} />
+        </main>
+        <Footer />
+        </div>
+    )
 }
 
 export default App
