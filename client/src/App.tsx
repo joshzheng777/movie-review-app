@@ -12,10 +12,10 @@ const App = () => {
             <Welcome isLoggedIn={true} />
             <SearchBar />
             <div className="flex flex-wrap justify-center gap-4">
-                <Card />
-                <Card />
-                <Card />
-                <Card />
+                <Card title="Man of Steel" poster_path="../assets/man-of-steel.jpg" />
+                <Card title="Man of Steel" poster_path="../assets/man-of-steel.jpg" />
+                <Card title="Man of Steel" poster_path="../assets/man-of-steel.jpg" />
+                <Card title="Man of Steel" poster_path="../assets/man-of-steel.jpg" />
             </div>
         </main>
         <Footer />
