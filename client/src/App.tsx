@@ -1,7 +1,8 @@
 import Navbar from './Components/Navbar'
 import Welcome from './Components/Welcome'
-import Footer from './Components/Footer'
 import SearchBar from './Components/SearchBar'
+import Card from './Components/Card'
+import Footer from './Components/Footer'
 
 const App = () => {
     return (
@@ -10,6 +11,12 @@ const App = () => {
         <main className="flex-grow">
             <Welcome isLoggedIn={true} />
             <SearchBar />
+            <div className="flex flex-wrap justify-center gap-4">
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+            </div>
         </main>
         <Footer />
         </div>
