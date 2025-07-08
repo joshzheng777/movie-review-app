@@ -6,11 +6,13 @@ import Welcome from './Welcome'
 const App = () => {
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-      <Welcome isLoggedIn={true} />
+      <main className="flex-grow">
+        <Welcome isLoggedIn={true} />
+      </main>
       <Footer />
-    </>
+    </div>
   )
 }
 

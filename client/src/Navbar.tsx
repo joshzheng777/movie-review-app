@@ -1,23 +1,21 @@
-
-
-const Navbar = () => {    
-    return(
+const Navbar = () => {
+    return (
         <>
-            <nav className="bg-gray-800 text-white p-4">
-                <ul className="flex space-x-4 items-center">
-                    <li>
-                        <a href="#" className="font-bold text-xl">Website Logo</a>
-                    </li>
-                    <li>
-                        <a href="#" className="hover:text-gray-300">Movies</a>
-                    </li>
-                    <li>
-                        <a href="#" className="hover:text-gray-300">Account</a>
-                    </li>
-                    <li>
-                        <a href="#" className="hover:text-gray-300">About</a>
-                    </li>
-                </ul>
+            <nav className="bg-red-800 text-white p-4">
+                <div className="container mx-auto flex justify-between items-center">
+                    <a href="#" className="font-bold text-xl"><img src="../assets/logo.png" alt="logo" className="object-cover h-[75px] w-[100px]" /></a>
+                    <ul className="flex space-x-4">
+                        <li>
+                            <a href="#" className="hover:text-gray-300">Movies</a>
+                        </li>
+                        <li>
+                            <a href="#" className="hover:text-gray-300">Account</a>
+                        </li>
+                        <li>
+                            <a href="#" className="hover:text-gray-300">About</a>
+                        </li>
+                    </ul>
+                </div>
             </nav>
             <div className="p-4">
                 <h1 className="text-2xl font-semibold">Welcome to Movie Reviews</h1>
