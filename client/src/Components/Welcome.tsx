@@ -1,6 +1,6 @@
 type WelcomeProps = {
-    name?: string;
-    isLoggedIn?: boolean;
+    name?: string
+    isLoggedIn?: boolean
 }
 
 const Welcome = ({ name, isLoggedIn = false }: WelcomeProps) => {

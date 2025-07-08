@@ -1,7 +1,7 @@
-
-import Navbar from './Navbar'
-import Welcome from './Welcome'
-import Footer from './Footer'
+import Navbar from './Components/Navbar'
+import Welcome from './Components/Welcome'
+import Footer from './Components/Footer'
+import SearchBar from './Components/SearchBar'
 
 const App = () => {
     return (
@@ -9,6 +9,7 @@ const App = () => {
         <Navbar />
         <main className="flex-grow">
             <Welcome isLoggedIn={true} />
+            <SearchBar />
         </main>
         <Footer />
         </div>
