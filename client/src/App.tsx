@@ -4,7 +4,7 @@ import SearchBar from './Components/SearchBar'
 import Card from './Components/Card'
 import Footer from './Components/Footer'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const options = {
     method: 'GET',
@@ -23,42 +23,22 @@ const App = () => {
         rating: number;
     }
 
-    const [popularMoviesList, setPopularMoviesList] = useState<Movie[]>([
-        // {
-        //     id: 1,
-        //     title: "Man of Steel",
-        //     poster_path: "../assets/man-of-steel.jpg",
-        //     rating: 5
-        // },
-        // {
-        //     id: 2,
-        //     title: "Batman v. Superman: Dawn of Justice",
-        //     poster_path: "../assets/batman-v-superman.jpg",
-        //     rating: 3
-        // },
-        // {
-        //     id: 3,
-        //     title: "Wonder Woman",
-        //     poster_path: "../assets/wonder-woman.jpg",
-        //     rating: 4
-        // },
-        // {
-        //     id: 4,
-        //     title: "Zack Synder's Justice League",
-        //     poster_path: "../assets/zack-synder-justice-league.png",
-        //     rating: 4
-        // }
-    ])
+    const [popularMoviesList, setPopularMoviesList] = useState<Movie[]>([])
 
-    fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
-        .then(res => res.json())
-        // .then(res => console.log(res))
-        .then((res) => {
-            for (let i = 0; i < 10; i++) {
-                console.log(res.results[i].original_title)
-            }
-        })
-        .catch(err => console.error(err));
+    useEffect(() => {
+        fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
+            .then(res => res.json())
+            .then((res) => {
+                const movies = res.results.slice(0, 8).map((movie: any) => ({
+                    id: movie.id,
+                    title: movie.original_title,
+                    poster_path: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+                    rating: movie.vote_average
+                }));
+                setPopularMoviesList(movies);
+            })
+            .catch(err => console.error(err));
+    }, [])
 
     return (
         <div className="flex flex-col min-h-screen">
