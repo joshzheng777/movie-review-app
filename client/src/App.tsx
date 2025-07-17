@@ -15,11 +15,6 @@ const options = {
 };
 
 const App = () => {
-    fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
-        .then(res => res.json())
-        .then(res => console.log(res))
-        .catch(err => console.error(err));
-
     const [searchTerm, setSearchTerm] = useState("");
     interface Movie {
         id: number;
@@ -54,6 +49,16 @@ const App = () => {
         //     rating: 4
         // }
     ])
+
+    fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
+        .then(res => res.json())
+        // .then(res => console.log(res))
+        .then((res) => {
+            for (let i = 0; i < 10; i++) {
+                console.log(res.results[i].original_title)
+            }
+        })
+        .catch(err => console.error(err));
 
     return (
         <div className="flex flex-col min-h-screen">
