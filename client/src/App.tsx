@@ -6,7 +6,21 @@ import Footer from './Components/Footer'
 
 import { useState } from 'react'
 
+const options = {
+    method: 'GET',
+    headers: {
+        accept: 'application/json',
+        Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`
+    }
+};
+
 const App = () => {
+
+    // FETCH Request Example
+    // fetch('https://api.themoviedb.org/3/authentication', options)
+    //     .then(res => res.json())
+    //     .then(res => console.log(res))
+    //     .catch(err => console.error(err));
 
     const [searchTerm, setSearchTerm] = useState("");
     interface Movie {
