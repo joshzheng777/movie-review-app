@@ -22,14 +22,19 @@ const App = () => {
             rating: 5
         },
         {
-            title: "Man of Steel",
-            poster_path: "../assets/man-of-steel.jpg",
-            rating: 5
+            title: "Batman v. Superman: Dawn of Justice",
+            poster_path: "../assets/batman-v-superman.jpg",
+            rating: 3
         },
         {
-            title: "Man of Steel",
-            poster_path: "../assets/man-of-steel.jpg",
-            rating: 5
+            title: "Wonder Woman",
+            poster_path: "../assets/wonder-woman.jpg",
+            rating: 4
+        },
+        {
+            title: "Zack Synder's Justice League",
+            poster_path: "../assets/zack-synder-justice-league.png",
+            rating: 4
         }
     ])
 
@@ -40,11 +45,6 @@ const App = () => {
             <Welcome isLoggedIn={true} />
             <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
             <div className="flex flex-wrap justify-center gap-4">
-                {/* <Card title="Man of Steel" poster_path="../assets/man-of-steel.jpg" />
-                <Card title="Man of Steel" poster_path="../assets/man-of-steel.jpg" />
-                <Card title="Man of Steel" poster_path="../assets/man-of-steel.jpg" />
-                <Card title="Man of Steel" poster_path="../assets/man-of-steel.jpg" /> */}
-
                 {popularMoviesList.map((movie) => (
                     <Card title={movie.title} poster_path={movie.poster_path} />
                 ))}
