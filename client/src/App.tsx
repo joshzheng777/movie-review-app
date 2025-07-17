@@ -29,30 +29,30 @@ const App = () => {
     }
 
     const [popularMoviesList, setPopularMoviesList] = useState<Movie[]>([
-        {
-            id: 1,
-            title: "Man of Steel",
-            poster_path: "../assets/man-of-steel.jpg",
-            rating: 5
-        },
-        {
-            id: 2,
-            title: "Batman v. Superman: Dawn of Justice",
-            poster_path: "../assets/batman-v-superman.jpg",
-            rating: 3
-        },
-        {
-            id: 3,
-            title: "Wonder Woman",
-            poster_path: "../assets/wonder-woman.jpg",
-            rating: 4
-        },
-        {
-            id: 4,
-            title: "Zack Synder's Justice League",
-            poster_path: "../assets/zack-synder-justice-league.png",
-            rating: 4
-        }
+        // {
+        //     id: 1,
+        //     title: "Man of Steel",
+        //     poster_path: "../assets/man-of-steel.jpg",
+        //     rating: 5
+        // },
+        // {
+        //     id: 2,
+        //     title: "Batman v. Superman: Dawn of Justice",
+        //     poster_path: "../assets/batman-v-superman.jpg",
+        //     rating: 3
+        // },
+        // {
+        //     id: 3,
+        //     title: "Wonder Woman",
+        //     poster_path: "../assets/wonder-woman.jpg",
+        //     rating: 4
+        // },
+        // {
+        //     id: 4,
+        //     title: "Zack Synder's Justice League",
+        //     poster_path: "../assets/zack-synder-justice-league.png",
+        //     rating: 4
+        // }
     ])
 
     return (
