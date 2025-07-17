@@ -9,6 +9,17 @@ import { useState } from 'react'
 const App = () => {
 
     const [searchTerm, setSearchTerm] = useState("");
+    interface Movie {
+        title: string;
+        poster_path: string;
+    }
+
+    const [popularMoviesList, setPopularMoviesList] = useState<Movie[]>([
+        {
+            title: "Man of Steel",
+            poster_path: "../assets/man-of-steel.jpg"
+        }
+    ])
 
     return (
         <div className="flex flex-col min-h-screen">
