@@ -15,7 +15,9 @@ const options = {
 };
 
 const App = () => {
+
     const [searchTerm, setSearchTerm] = useState("");
+
     interface Movie {
         id: number;
         title: string;
@@ -25,7 +27,7 @@ const App = () => {
 
     const [popularMoviesList, setPopularMoviesList] = useState<Movie[]>([])
 
-    useEffect(() => {
+    const fetchPopularMovies = () => {
         fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
             .then(res => res.json())
             .then((res) => {
@@ -38,6 +40,25 @@ const App = () => {
                 setPopularMoviesList(movies);
             })
             .catch(err => console.error(err));
+    }
+
+    const handleSearch = () => {
+        fetch(`https://api.themoviedb.org/3/search/movie?query=${searchTerm}&include_adult=false&language=en-US&page=1`, options)
+            .then(res => res.json())
+            .then(res => {
+                const movies = res.results.slice(0, 12).map((movie: any) => ({
+                    id: movie.id,
+                    title: movie.original_title,
+                    poster_path: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+                    rating: movie.vote_average
+                }));
+                setPopularMoviesList(movies);
+            })
+            .catch(err => console.error(err));
+    }
+
+    useEffect(() => {
+        fetchPopularMovies();
     }, [])
 
     return (
@@ -45,10 +66,19 @@ const App = () => {
             <Navbar />
             <main className="flex-grow">
                 <Welcome isLoggedIn={true} />
-                <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+                <SearchBar 
+                    searchTerm={searchTerm} 
+                    setSearchTerm={setSearchTerm} 
+                    onSearch={handleSearch}
+                />
                 <div className="flex flex-wrap justify-center gap-4">
                     {popularMoviesList.map((movie) => (
-                    <Card key={movie.id} title={movie.title} poster_path={movie.poster_path} rating={movie.rating} />
+                    <Card 
+                        key={movie.id} 
+                        title={movie.title} 
+                        poster_path={movie.poster_path} 
+                        rating={movie.rating}
+                    />
                 ))}
                 </div>
             </main>
