@@ -29,7 +29,7 @@ const App = () => {
         fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
             .then(res => res.json())
             .then((res) => {
-                const movies = res.results.slice(0, 8).map((movie: any) => ({
+                const movies = res.results.slice(0, 12).map((movie: any) => ({
                     id: movie.id,
                     title: movie.original_title,
                     poster_path: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
@@ -42,17 +42,17 @@ const App = () => {
 
     return (
         <div className="flex flex-col min-h-screen">
-        <Navbar />
-        <main className="flex-grow">
-            <Welcome isLoggedIn={true} />
-            <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-            <div className="flex flex-wrap justify-center gap-4">
-                {popularMoviesList.map((movie) => (
-                    <Card key={movie.id} title={movie.title} poster_path={movie.poster_path} />
+            <Navbar />
+            <main className="flex-grow">
+                <Welcome isLoggedIn={true} />
+                <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+                <div className="flex flex-wrap justify-center gap-4">
+                    {popularMoviesList.map((movie) => (
+                    <Card key={movie.id} title={movie.title} poster_path={movie.poster_path} rating={movie.rating} />
                 ))}
-            </div>
-        </main>
-        <Footer />
+                </div>
+            </main>
+            <Footer />
         </div>
     )
 }
