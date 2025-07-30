@@ -1,3 +1,8 @@
+import MoreInfoModal from './MoreInfoModal'
+
+import { useState } from 'react';
+
+// TODO: Switch to Movie type if possible
 type CardProps = {
     title: string
     poster_path: string
@@ -5,9 +10,14 @@ type CardProps = {
 }
 
 const Card = ({ title, poster_path, rating }: CardProps) => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     if (poster_path === "https://image.tmdb.org/t/p/w500null") {
         poster_path = "../assets/no-image-placeholder.png"
     }
+
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
 
     return (
         <div className="max-w-[18rem] rounded-lg overflow-hidden shadow-lg border-2 border-gray-300 flex flex-col">
@@ -18,7 +28,7 @@ const Card = ({ title, poster_path, rating }: CardProps) => {
                     <p className="text-gray-700 text-base text-center">⭐ {rating}</p>
                 </div>
                 <div className="text-center mt-4">
-                    <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mb-2">
+                    <button onClick={openModal} className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mb-2">
                         More Info
                     </button>
                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
@@ -26,6 +36,15 @@ const Card = ({ title, poster_path, rating }: CardProps) => {
                     </button>
                 </div>
             </div>
+
+            {isModalOpen && (
+                <MoreInfoModal
+                    title={title}
+                    poster_path={poster_path}
+                    rating={rating}
+                    closeModal={closeModal}
+                />
+            )}
         </div>
     )
 }
