@@ -18,22 +18,23 @@ const options = {
 };
 
 /**
+ * Interface defining the structure of a Movie object.
+ */
+
+export interface Movie {
+    id: number;
+    title: string;
+    poster_path: string;
+    rating: number;
+}
+
+/**
  * Main application component responsible for managing movie data, search, and display.
  */
 const App = () => {
 
     // State to manage the current search term entered by the user.
     const [searchTerm, setSearchTerm] = useState("");
-
-    /**
-     * Interface defining the structure of a Movie object.
-     */
-    interface Movie {
-        id: number;
-        title: string;
-        poster_path: string;
-        rating: number;
-    }
 
     // TODO: Implemented Watch Later List
     // const [watchLaterList, setWatchLaterList] = useState<Movie[]>([])
@@ -132,11 +133,9 @@ const App = () => {
                         <h2 className="text-3xl font-bold text-center mb-8">Popular Movies</h2>
                         <div className="flex flex-wrap justify-center gap-4">
                             {popularMoviesList.map((movie) => (
-                                <Card 
-                                    key={movie.id} 
-                                    title={movie.title} 
-                                    poster_path={movie.poster_path} 
-                                    rating={movie.rating}
+                                <Card
+                                    key={movie.id}
+                                    movie={movie}
                                 />
                             ))}
                         </div>
@@ -148,9 +147,7 @@ const App = () => {
                             {searchMoviesList.map((movie) => (
                                 <Card 
                                     key={movie.id} 
-                                    title={movie.title} 
-                                    poster_path={movie.poster_path} 
-                                    rating={movie.rating}
+                                    movie={movie}
                                 />
                             ))}
                         </div>
