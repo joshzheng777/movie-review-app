@@ -25,27 +25,9 @@ const App = () => {
         rating: number;
     }
 
+    const [watchLaterList, setWatchLaterList] = useState<Movie[]>([])
     const [popularMoviesList, setPopularMoviesList] = useState<Movie[]>([])
-    const [watchLaterList, setWatchLaterList] = useState<Movie[]>([
-        {
-            id: 12,
-            title: "Man of Steel",
-            poster_path: "../assets/no-image-placeholder.png",
-            rating: 5
-        },
-        {
-            id: 13,
-            title: "Wonder Woman",
-            poster_path: "../assets/wonder-woman.jpg",
-            rating: 3.5
-        },
-        {
-            id: 14,
-            title: "Justice League",
-            poster_path: "../assets/zack-synder-justice-league.png",
-            rating: 4
-        }
-    ])
+    const [searchMoviesList, setSearchMoviesList] = useState<Movie[]>([])
 
     const fetchPopularMovies = () => {
         fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
@@ -72,7 +54,7 @@ const App = () => {
                     poster_path: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
                     rating: movie.vote_average
                 }));
-                setPopularMoviesList(movies);
+                setSearchMoviesList(movies);
             })
             .catch(err => console.error(err));
     }
@@ -108,6 +90,19 @@ const App = () => {
                     <h2 className="text-3xl font-bold text-center mb-8">Popular Movies</h2>
                     <div className="flex flex-wrap justify-center gap-4">
                         {popularMoviesList.map((movie) => (
+                            <Card 
+                                key={movie.id} 
+                                title={movie.title} 
+                                poster_path={movie.poster_path} 
+                                rating={movie.rating}
+                            />
+                        ))}
+                    </div>
+                </div>
+                <div className="my-8">
+                    <h2 className="text-3xl font-bold text-center mb-8">Search Results</h2>
+                    <div className="flex flex-wrap justify-center gap-4">
+                        {searchMoviesList.map((movie) => (
                             <Card 
                                 key={movie.id} 
                                 title={movie.title} 
