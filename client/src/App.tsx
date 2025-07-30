@@ -59,16 +59,23 @@ const App = () => {
             .catch(err => console.error(err));
     }
 
+    const handleReturnHome = () => {
+        setSearchMoviesList([]);
+        fetchPopularMovies();
+    }
+
     useEffect(() => {
         fetchPopularMovies();
     }, [])
 
     return (
         <div className="flex flex-col min-h-screen">
-            <Navbar />
+            <Navbar
+                onLogoClick={handleReturnHome} 
+            />
             <main className="flex-grow">
                 <Welcome isLoggedIn={true} />
-                <SearchBar 
+                <SearchBar
                     searchTerm={searchTerm} 
                     setSearchTerm={setSearchTerm} 
                     onSearch={handleSearch}
