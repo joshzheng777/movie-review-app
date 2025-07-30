@@ -86,32 +86,35 @@ const App = () => {
                         ))}
                     </div>
                 </div> */}
-                <div className="my-8">
-                    <h2 className="text-3xl font-bold text-center mb-8">Popular Movies</h2>
-                    <div className="flex flex-wrap justify-center gap-4">
-                        {popularMoviesList.map((movie) => (
-                            <Card 
-                                key={movie.id} 
-                                title={movie.title} 
-                                poster_path={movie.poster_path} 
-                                rating={movie.rating}
-                            />
-                        ))}
+                {searchMoviesList.length === 0 ? (
+                    <div className="my-8">
+                        <h2 className="text-3xl font-bold text-center mb-8">Popular Movies</h2>
+                        <div className="flex flex-wrap justify-center gap-4">
+                            {popularMoviesList.map((movie) => (
+                                <Card 
+                                    key={movie.id} 
+                                    title={movie.title} 
+                                    poster_path={movie.poster_path} 
+                                    rating={movie.rating}
+                                />
+                            ))}
+                        </div>
                     </div>
-                </div>
-                <div className="my-8">
-                    <h2 className="text-3xl font-bold text-center mb-8">Search Results</h2>
-                    <div className="flex flex-wrap justify-center gap-4">
-                        {searchMoviesList.map((movie) => (
-                            <Card 
-                                key={movie.id} 
-                                title={movie.title} 
-                                poster_path={movie.poster_path} 
-                                rating={movie.rating}
-                            />
-                        ))}
+                ) : (
+                    <div className="my-8">
+                        <h2 className="text-3xl font-bold text-center mb-8">Search Results</h2>
+                        <div className="flex flex-wrap justify-center gap-4">
+                            {searchMoviesList.map((movie) => (
+                                <Card 
+                                    key={movie.id} 
+                                    title={movie.title} 
+                                    poster_path={movie.poster_path} 
+                                    rating={movie.rating}
+                                />
+                            ))}
+                        </div>
                     </div>
-                </div>
+                )}
             </main>
             <Footer />
         </div>
