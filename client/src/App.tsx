@@ -25,7 +25,7 @@ const App = () => {
         rating: number;
     }
 
-    const [watchLaterList, setWatchLaterList] = useState<Movie[]>([])
+    // const [watchLaterList, setWatchLaterList] = useState<Movie[]>([])
     const [popularMoviesList, setPopularMoviesList] = useState<Movie[]>([])
     const [searchMoviesList, setSearchMoviesList] = useState<Movie[]>([])
 
@@ -73,7 +73,7 @@ const App = () => {
                     setSearchTerm={setSearchTerm} 
                     onSearch={handleSearch}
                 />
-                <div className="my-8">
+                {/* <div className="my-8">
                     <h2 className="text-3xl font-bold text-center mb-8">Your Watchlist</h2>
                     <div className="flex flex-wrap justify-center gap-4">
                         {watchLaterList.map((movie) => (
@@ -85,7 +85,7 @@ const App = () => {
                             />
                         ))}
                     </div>
-                </div>
+                </div> */}
                 <div className="my-8">
                     <h2 className="text-3xl font-bold text-center mb-8">Popular Movies</h2>
                     <div className="flex flex-wrap justify-center gap-4">

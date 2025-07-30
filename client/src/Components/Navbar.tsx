@@ -6,7 +6,7 @@ const Navbar = () => {
                     <a href="#" className="font-bold text-xl"><img src="../assets/logo.png" alt="logo" className="object-cover h-[75px] w-[100px]" /></a>
                     <ul className="flex space-x-4">
                         <li>
-                            <a href="#" className="hover:text-gray-300">Movies</a>
+                            <a href="#" className="hover:text-gray-300">Watch Later</a>
                         </li>
                         <li>
                             <a href="#" className="hover:text-gray-300">Account</a>

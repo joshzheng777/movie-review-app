@@ -15,6 +15,11 @@ const Card = ({ title, poster_path, rating }: CardProps) => {
             <div className="px-6 py-4">
                 <p className="font-bold text-xl mb-2 text-center">{title}</p>
                 <p className="text-gray-700 text-base text-center">⭐ {rating}</p>
+                <div className="text-center mt-4">
+                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Add to Watch Later
+                    </button>
+                </div>
             </div>
         </div>
     )
