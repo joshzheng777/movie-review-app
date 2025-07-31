@@ -1,10 +1,24 @@
 import { Movie } from './../App'
 import { useState, useEffect } from 'react';
 
+/**
+ * @interface SpokenLanguage
+ * @description Interface for the spoken languages of a movie.
+ * @property {string} english_name - The English name of the language.
+ */
 interface SpokenLanguage {
     english_name: string;
 }
 
+/**
+ * @interface MovieDetails
+ * @description Interface for the detailed information of a movie.
+ * @property {SpokenLanguage[]} spoken_languages - The spoken languages of the movie.
+ * @property {string} release_date - The release date of the movie.
+ * @property {number} revenue - The revenue of the movie.
+ * @property {number} runtime - The runtime of the movie.
+ * @property {string} overview - The overview of the movie.
+ */
 interface MovieDetails {
     spoken_languages: SpokenLanguage[];
     release_date: string;
@@ -13,11 +27,23 @@ interface MovieDetails {
     overview: string;
 }
 
+/**
+ * @type MoreInfoModalProps
+ * @description Type for the props of the MoreInfoModal component.
+ * @property {Movie} movie - The movie object.
+ * @property {() => void} closeModal - The function to close the modal.
+ */
 type MoreInfoModalProps = {
     movie: Movie
     closeModal: () => void;
 }
 
+/**
+ * @component MoreInfoModal
+ * @description A modal component that displays more information about a movie.
+ * @param {MoreInfoModalProps} props - The props for the component.
+ * @returns {JSX.Element} - The rendered component.
+ */
 const MoreInfoModal = ({ movie, closeModal }: MoreInfoModalProps) => {
     const [movieDetails, setMovieDetails] = useState<MovieDetails | null>(null);
 
@@ -29,6 +55,9 @@ const MoreInfoModal = ({ movie, closeModal }: MoreInfoModalProps) => {
         }
     };
 
+    /**
+     * @description Fetches the movie details from the TMDB API when the component mounts.
+     */
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/movie/${movie.id}?language=en-US`, options)
             .then(res => res.json())

@@ -3,11 +3,21 @@ import MoreInfoModal from './MoreInfoModal'
 
 import { useState } from 'react';
 
-// TODO: Switch to Movie type if possible
+/**
+ * @type CardProps
+ * @description Type for the props of the Card component.
+ * @property {Movie} movie - The movie object to be displayed in the card.
+ */
 type CardProps = {
     movie: Movie
 }
 
+/**
+ * @component Card
+ * @description A component that displays a movie card with its poster, title, and rating.
+ * @param {CardProps} props - The props for the component.
+ * @returns {JSX.Element} - The rendered component.
+ */
 const Card = ({ movie }: CardProps) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
