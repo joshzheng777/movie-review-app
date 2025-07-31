@@ -19,4 +19,4 @@ A full-stack web application for browsing and submitting movie reviews. Built wi
 - [.NET](https://dotnet.microsoft.com/) — Web server framework
 - [ASP.NET Core Web API](https://docs.microsoft.com/en-us/aspnet/core/web-api/?view=aspnetcore-8.0) — Framework for building web APIs
 - [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/) — Object-relational mapper (ORM)
-- [PostgreSQL](https://www.postgresql.org/) — Relational database
+- [Microsoft SQL Server Express](https://docs.microsoft.com/en-us/sql/sql-server/sql-server-express?view=sql-server-ver16) — Relational database
