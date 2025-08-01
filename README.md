@@ -1,6 +1,6 @@
 # 🎬 Movie Review Website
 
-A full-stack web application for browsing and submitting movie reviews. Built with modern web technologies using React, TypeScript, C# and .NET.
+A full-stack web application for browsing and submitting movie reviews. Built with modern web technologies using React, TypeScript, Java, and Spring Boot.
 
 ---
 
@@ -15,8 +15,8 @@ A full-stack web application for browsing and submitting movie reviews. Built wi
 - [ESLint](https://eslint.org/) — Linting and code quality
 
 ### Backend (`/server`)
-- [C#](https://docs.microsoft.com/en-us/dotnet/csharp/) — Programming language
-- [.NET](https://dotnet.microsoft.com/) — Web server framework
-- [ASP.NET Core Web API](https://docs.microsoft.com/en-us/aspnet/core/web-api/?view=aspnetcore-8.0) — Framework for building web APIs
-- [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/) — Object-relational mapper (ORM)
-- [Microsoft SQL Server Express](https://docs.microsoft.com/en-us/sql/sql-server/sql-server-express?view=sql-server-ver16) — Relational database
+- [Java](https://www.java.com/) — Programming language
+- [Spring Boot](https://spring.io/projects/spring-boot) — Web server framework
+- [Spring Web](https://docs.spring.io/spring-framework/reference/web/webmvc.html) — Framework for building web APIs
+- [Spring Data JPA](https://spring.io/projects/spring-data-jpa) — Object-relational mapper (ORM)
+- [PostgreSQL](https://www.postgresql.org/) — Relational database
