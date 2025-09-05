@@ -40,8 +40,8 @@ export interface Movie {
  */
 const App: React.FC = (): React.JSX.Element => {
 
-    const [searchTerm, setSearchTerm] = useState("");
-    // const [watchLaterList, setWatchLaterList] = useState<Movie[]>([])
+    const [searchTerm, setSearchTerm] = useState<string>("");
+    const [watchLaterList, setWatchLaterList] = useState<Movie[]>([])
     const [popularMoviesList, setPopularMoviesList] = useState<Movie[]>([])
     const [searchMoviesList, setSearchMoviesList] = useState<Movie[]>([])
 
@@ -112,21 +112,28 @@ const App: React.FC = (): React.JSX.Element => {
                     onSearch={handleSearch}
                 />
 
-                {/* <div className="my-8">
-                    <h2 className="text-3xl font-bold text-center mb-8">Your Watchlist</h2>
-                    <div className="flex flex-wrap justify-center gap-4">
-                        {watchLaterList.map((movie) => (
-                            <Card
-                                key={movie.id}
-                                title={movie.title}
-                                poster_path={movie.poster_path}
-                                rating={movie.rating}
-                            />
-                        ))ओं
+                {/* For now, Water Later list is shown by default */}
+                {watchLaterList.length === 0 ? (
+                    <p>Watch Later List is empty right now</p>
+                ) : (
+                    <div className="my-8">
+                        <h2 className="text-3xl font-bold text-center mb-8">Your Watchlist</h2>
+                        <div className="flex flex-wrap justify-center gap-4">
+                            {watchLaterList.map((movie) => (
+                                <Card
+                                    key={movie.id}
+                                    movie={movie}
+                                    watchLaterList={watchLaterList}
+                                    setWatchLaterList={setWatchLaterList}
+                                />
+                            ))}
+                        </div>
                     </div>
-                </div> */}
+                )}
 
                 {searchMoviesList.length === 0 ? (
+
+                    // Popular Movies shown by default
                     <div className="my-8">
                         <h2 className="text-3xl font-bold text-center mb-8">Popular Movies</h2>
                         <div className="flex flex-wrap justify-center gap-4">
@@ -134,11 +141,15 @@ const App: React.FC = (): React.JSX.Element => {
                                 <Card
                                     key={movie.id}
                                     movie={movie}
+                                    watchLaterList={watchLaterList}
+                                    setWatchLaterList={setWatchLaterList}
                                 />
                             ))}
                         </div>
                     </div>
                 ) : (
+                    
+                    // Search Results list shown after seearch is performed
                     <div className="my-8">
                         <h2 className="text-3xl font-bold text-center mb-8">Search Results</h2>
                         <div className="flex flex-wrap justify-center gap-4">
@@ -146,6 +157,8 @@ const App: React.FC = (): React.JSX.Element => {
                                 <Card 
                                     key={movie.id} 
                                     movie={movie}
+                                    watchLaterList={watchLaterList}
+                                    setWatchLaterList={setWatchLaterList}
                                 />
                             ))}
                         </div>

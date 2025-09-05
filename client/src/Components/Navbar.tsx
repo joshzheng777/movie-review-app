@@ -2,7 +2,9 @@ type NavbarProps = {
     onLogoClick: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ onLogoClick }: NavbarProps): React.JSX.Element => {
+const Navbar: React.FC<NavbarProps> = ({
+    onLogoClick
+}: NavbarProps): React.JSX.Element => {
     return (
         <>
             <nav className="bg-red-800 text-white p-4">

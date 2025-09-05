@@ -1,4 +1,5 @@
 import { Movie } from './../App'
+import AddWatchLater from './AddWatchLater';
 import MoreInfoModal from './MoreInfoModal'
 
 import { useState } from 'react';
@@ -10,6 +11,8 @@ import { useState } from 'react';
  */
 type CardProps = {
     movie: Movie
+    watchLaterList: Movie[],
+    setWatchLaterList: React.Dispatch<React.SetStateAction<Movie[]>>
 }
 
 /**
@@ -18,8 +21,12 @@ type CardProps = {
  * @param {CardProps} props - The props for the component.
  * @returns {JSX.Element} - The rendered component.
  */
-const Card: React.FC<CardProps> = ({ movie }: CardProps): React.JSX.Element => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+const Card: React.FC<CardProps> = ({
+    movie,
+    watchLaterList,
+    setWatchLaterList
+}: CardProps): React.JSX.Element => {
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
     if (movie.poster_path === "https://image.tmdb.org/t/p/w500null") {
         movie.poster_path = "../assets/no-image-placeholder.png"
@@ -40,9 +47,10 @@ const Card: React.FC<CardProps> = ({ movie }: CardProps): React.JSX.Element => {
                     <button onClick={openModal} className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mb-2">
                         More Info
                     </button>
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        Add to Watch Later
-                    </button>
+                    <AddWatchLater 
+                        watchLaterList={watchLaterList}
+                        setWatchLaterList={setWatchLaterList}
+                    />
                 </div>
             </div>
 
