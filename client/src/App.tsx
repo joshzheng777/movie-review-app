@@ -38,7 +38,7 @@ export interface Movie {
  * @description Main application component responsible for managing movie data, search, and display.
  * @returns {JSX.Element} The rendered App component.
  */
-const App = () => {
+const App: React.FC = (): React.JSX.Element => {
 
     const [searchTerm, setSearchTerm] = useState("");
     // const [watchLaterList, setWatchLaterList] = useState<Movie[]>([])

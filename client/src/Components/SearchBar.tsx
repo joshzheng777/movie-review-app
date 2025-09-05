@@ -6,7 +6,7 @@ type SearchProps = {
     onSearch: () => void;
 }
 
-const SearchBar = ({ searchTerm, setSearchTerm, onSearch }: SearchProps) => {
+const SearchBar: React.FC<SearchProps> = ({ searchTerm, setSearchTerm, onSearch }: SearchProps): React.JSX.Element => {
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {

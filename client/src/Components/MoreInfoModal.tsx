@@ -44,7 +44,7 @@ type MoreInfoModalProps = {
  * @param {MoreInfoModalProps} props - The props for the component.
  * @returns {JSX.Element} - The rendered component.
  */
-const MoreInfoModal = ({ movie, closeModal }: MoreInfoModalProps) => {
+const MoreInfoModal: React.FC<MoreInfoModalProps> = ({ movie, closeModal }: MoreInfoModalProps): React.JSX.Element => {
     const [movieDetails, setMovieDetails] = useState<MovieDetails | null>(null);
 
     const options = {

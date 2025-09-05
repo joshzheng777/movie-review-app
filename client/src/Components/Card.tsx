@@ -18,7 +18,7 @@ type CardProps = {
  * @param {CardProps} props - The props for the component.
  * @returns {JSX.Element} - The rendered component.
  */
-const Card = ({ movie }: CardProps) => {
+const Card: React.FC<CardProps> = ({ movie }: CardProps): React.JSX.Element => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     if (movie.poster_path === "https://image.tmdb.org/t/p/w500null") {

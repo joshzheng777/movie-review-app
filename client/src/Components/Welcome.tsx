@@ -3,7 +3,7 @@ type WelcomeProps = {
     isLoggedIn?: boolean
 }
 
-const Welcome = ({ name, isLoggedIn = false }: WelcomeProps) => {
+const Welcome: React.FC<WelcomeProps> = ({ name, isLoggedIn = false }: WelcomeProps): React.JSX.Element => {
     if (isLoggedIn) {
         return (
             <div className="p-4 text-center">
